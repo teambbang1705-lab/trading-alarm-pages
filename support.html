@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trading Alarm - Support</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0e0e0e;
+      color: #e0e0e0;
+      line-height: 1.7;
+      padding: 40px 20px 80px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 24px; color: #fff; margin-bottom: 8px; }
+    .subtitle { font-size: 15px; color: #888; margin-bottom: 40px; }
+    .card {
+      background: #1f1f1f;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .card h2 { font-size: 17px; color: #fff; margin-bottom: 8px; }
+    .card p { font-size: 15px; color: #aaa; }
+    .card a { color: #a78bfa; text-decoration: none; }
+    .card a:hover { text-decoration: underline; }
+    .lang-switch {
+      display: flex; gap: 8px; margin-bottom: 32px;
+    }
+    .lang-switch button {
+      background: #1f1f1f; border: 1px solid #333; color: #aaa;
+      padding: 6px 16px; border-radius: 20px; font-size: 13px; cursor: pointer;
+    }
+    .lang-switch button.active {
+      background: #fff; color: #0e0e0e; border-color: #fff;
+    }
+    .section { display: none; }
+    .section.active { display: block; }
+    .faq-item { margin-bottom: 20px; }
+    .faq-item h3 { font-size: 15px; color: #fff; margin-bottom: 4px; }
+    .faq-item p { font-size: 14px; color: #aaa; }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <button id="btn-ko" class="active" onclick="switchLang('ko')">한국어</button>
+    <button id="btn-en" onclick="switchLang('en')">English</button>
+  </div>
+
+  <!-- Korean -->
+  <div id="ko" class="section active">
+    <h1>Trading Alarm 고객지원</h1>
+    <p class="subtitle">도움이 필요하신가요? 아래 방법으로 문의해주세요.</p>
+
+    <div class="card">
+      <h2>이메일 문의</h2>
+      <p>문의, 버그 신고, 기능 제안 등 모든 문의를 환영합니다.</p>
+      <p style="margin-top: 12px;"><a href="mailto:tradingalarm.cs@gmail.com">tradingalarm.cs@gmail.com</a></p>
+    </div>
+
+    <div class="card">
+      <h2>자주 묻는 질문</h2>
+      <div style="margin-top: 12px;">
+        <div class="faq-item">
+          <h3>Q. 알림이 오지 않아요.</h3>
+          <p>설정 → 알림에서 Trading Alarm의 알림이 허용되어 있는지 확인해주세요. 또한 방해금지 모드가 꺼져 있는지 확인해주세요.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Q. 알람 허용 시간이 뭔가요?</h3>
+          <p>알람을 수신할 시간대를 설정하는 기능입니다. 설정한 시간 외에는 알림이 발송되지 않습니다.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Q. 실시간 가격과 차이가 있어요.</h3>
+          <p>시세 데이터는 외부 제공자를 통해 수집되며, 실시간 데이터와 소폭 차이가 있을 수 있습니다.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Q. 데이터를 삭제하고 싶어요.</h3>
+          <p>앱에서 개별 알람을 삭제하거나, 앱을 삭제하면 모든 데이터가 제거됩니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- English -->
+  <div id="en" class="section">
+    <h1>Trading Alarm Support</h1>
+    <p class="subtitle">Need help? Contact us using the methods below.</p>
+
+    <div class="card">
+      <h2>Email Support</h2>
+      <p>We welcome all inquiries, bug reports, and feature suggestions.</p>
+      <p style="margin-top: 12px;"><a href="mailto:tradingalarm.cs@gmail.com">tradingalarm.cs@gmail.com</a></p>
+    </div>
+
+    <div class="card">
+      <h2>FAQ</h2>
+      <div style="margin-top: 12px;">
+        <div class="faq-item">
+          <h3>Q. I'm not receiving notifications.</h3>
+          <p>Please check that notifications are enabled for Trading Alarm in Settings → Notifications. Also ensure Do Not Disturb mode is turned off.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Q. What is the alarm allowed time?</h3>
+          <p>It lets you set the time window during which alarms can be sent. Notifications will not be sent outside this window.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Q. The price differs from real-time data.</h3>
+          <p>Market data is sourced from third-party providers and may have slight differences from real-time data.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Q. How do I delete my data?</h3>
+          <p>You can delete individual alarms in the app, or uninstall the app to remove all data.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+      document.getElementById(lang).classList.add('active');
+      document.getElementById('btn-' + lang).classList.add('active');
+    }
+  </script>
+</body>
+</html>
